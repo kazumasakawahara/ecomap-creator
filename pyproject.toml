@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
-    { name = "Kazumasa Kawahara", email = "12345678+kazumasakawahara@users.noreply.github.com" }
+    { name = "Kazumasa Kawahara", email = "68316358+kazumasakawahara@users.noreply.github.com" }
 ]
 keywords = ["ecomap", "disability-support", "social-work", "visualization", "claude-skill"]
 classifiers = [
