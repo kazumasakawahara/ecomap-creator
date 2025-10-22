@@ -1,0 +1,751 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "エコマップデータスキーマ",
+  "description": "障害者支援エコマップのグラフデータベース構造定義",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["metadata", "nodes", "relationships"],
+  
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "エコマップのメタデータ",
+      "required": ["created_at", "updated_at", "version"],
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "作成日時（ISO 8601形式）"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新日時（ISO 8601形式）"
+        },
+        "version": {
+          "type": "string",
+          "description": "データバージョン",
+          "default": "1.0.0"
+        },
+        "created_by": {
+          "type": "string",
+          "description": "作成者"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "nodes": {
+      "type": "array",
+      "description": "グラフのノード（実体）一覧",
+      "items": {
+        "$ref": "#/definitions/Node"
+      }
+    },
+    
+    "relationships": {
+      "type": "array",
+      "description": "グラフのリレーション（関係性）一覧",
+      "items": {
+        "$ref": "#/definitions/Relationship"
+      }
+    }
+  },
+  
+  "definitions": {
+    "Node": {
+      "type": "object",
+      "required": ["id", "type", "properties"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ノードの一意識別子（UUID推奨）"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Person",
+            "Family",
+            "RyoikuNotebook",
+            "MentalHealthNotebook",
+            "PhysicalDisabilityNotebook",
+            "SupportLevel",
+            "Diagnosis",
+            "LegalGuardian",
+            "ConsultationSupport",
+            "ConsultationSupportSpecialist",
+            "ServicePlan",
+            "SupportService",
+            "ServiceManager",
+            "ServiceContract",
+            "MedicalInstitution",
+            "Doctor",
+            "Government",
+            "Medication"
+          ],
+          "description": "ノードのタイプ"
+        },
+        "properties": {
+          "type": "object",
+          "description": "ノード固有のプロパティ（タイプごとに異なる）"
+        },
+        "display": {
+          "$ref": "#/definitions/DisplaySettings"
+        }
+      }
+    },
+    
+    "Relationship": {
+      "type": "object",
+      "required": ["id", "type", "from", "to"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "リレーションの一意識別子（UUID推奨）"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "HAS_NOTEBOOK",
+            "HAS_SUPPORT_LEVEL",
+            "HAS_DIAGNOSIS",
+            "FAMILY_RELATION",
+            "UNDER_GUARDIANSHIP",
+            "HAS_SERVICE_PLAN",
+            "HAS_CONTRACT",
+            "RECEIVES_MEDICAL_CARE",
+            "TREATED_BY",
+            "CREATED_BY",
+            "WORKS_FOR",
+            "CONTRACT_WITH",
+            "MANAGED_BY",
+            "DIAGNOSED_BY",
+            "RENEWED_FROM",
+            "CHANGED_FROM",
+            "REVISED_FROM",
+            "PRESCRIBED_BY",
+            "TAKES_MEDICATION"
+          ],
+          "description": "リレーションのタイプ"
+        },
+        "from": {
+          "type": "string",
+          "description": "関係の始点ノードID"
+        },
+        "to": {
+          "type": "string",
+          "description": "関係の終点ノードID"
+        },
+        "properties": {
+          "type": "object",
+          "description": "リレーション固有のプロパティ"
+        }
+      }
+    },
+    
+    "DisplaySettings": {
+      "type": "object",
+      "description": "表示設定",
+      "properties": {
+        "color": {
+          "type": "string",
+          "description": "ノードの色（16進数カラーコード）"
+        },
+        "icon": {
+          "type": "string",
+          "description": "ノードのアイコン（絵文字またはフォント）"
+        },
+        "layer": {
+          "type": "string",
+          "enum": ["default", "family", "history", "medical", "support", "all"],
+          "description": "表示レイヤー"
+        },
+        "visible": {
+          "type": "boolean",
+          "description": "デフォルト表示するか",
+          "default": true
+        }
+      }
+    },
+    
+    "PersonProperties": {
+      "type": "object",
+      "required": ["name", "birthDate", "gender"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "氏名（必須）"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date",
+          "description": "生年月日（YYYY-MM-DD形式、必須）"
+        },
+        "age": {
+          "type": "integer",
+          "description": "年齢（自動計算）"
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["男", "女", "その他"],
+          "description": "性別（必須）"
+        },
+        "postalCode": {
+          "type": "string",
+          "pattern": "^[0-9]{3}-?[0-9]{4}$",
+          "description": "郵便番号"
+        },
+        "address": {
+          "type": "string",
+          "description": "住所"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "emergencyContact": {
+          "type": "string",
+          "description": "緊急連絡先"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "FamilyProperties": {
+      "type": "object",
+      "required": ["name", "relation", "cohabiting"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "氏名（必須）"
+        },
+        "relation": {
+          "type": "string",
+          "description": "続柄（必須）例：父、母、兄、妹"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date",
+          "description": "生年月日（YYYY-MM-DD形式）"
+        },
+        "age": {
+          "type": "integer",
+          "description": "年齢（自動計算）"
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["男", "女", "その他"],
+          "description": "性別"
+        },
+        "cohabiting": {
+          "type": "boolean",
+          "description": "同居しているか（必須）"
+        },
+        "primaryCaregiver": {
+          "type": "boolean",
+          "description": "主介護者かどうか",
+          "default": false
+        },
+        "address": {
+          "type": "string",
+          "description": "住所（別居の場合）"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "NotebookProperties": {
+      "type": "object",
+      "required": ["notebookType", "grade", "issueDate", "issueAuthority", "status"],
+      "properties": {
+        "notebookType": {
+          "type": "string",
+          "enum": ["療育手帳", "精神保健福祉手帳", "身体障害者手帳"],
+          "description": "手帳種別（必須）"
+        },
+        "grade": {
+          "type": "string",
+          "description": "等級・判定（必須）例：A1、2級、3度"
+        },
+        "notebookNumber": {
+          "type": "string",
+          "description": "手帳番号"
+        },
+        "issueDate": {
+          "type": "string",
+          "format": "date",
+          "description": "交付日（YYYY-MM-DD形式、必須）"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "有効期限（YYYY-MM-DD形式）"
+        },
+        "issueAuthority": {
+          "type": "string",
+          "description": "交付自治体（必須）"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["有効", "期限切れ", "更新済み"],
+          "description": "状態（必須）"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "SupportLevelProperties": {
+      "type": "object",
+      "required": ["level", "decisionDate", "decisionAuthority", "status"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["0", "1", "2", "3", "4", "5", "6", "非該当"],
+          "description": "支援区分（必須）"
+        },
+        "decisionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "決定日（YYYY-MM-DD形式、必須）"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "有効期限（YYYY-MM-DD形式）"
+        },
+        "decisionAuthority": {
+          "type": "string",
+          "description": "決定自治体（必須）"
+        },
+        "investigator": {
+          "type": "string",
+          "description": "認定調査員"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["現在", "期限切れ"],
+          "description": "状態（必須）"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "DiagnosisProperties": {
+      "type": "object",
+      "required": ["diagnosisName", "status"],
+      "properties": {
+        "diagnosisName": {
+          "type": "string",
+          "description": "診断名（必須）"
+        },
+        "icd10Code": {
+          "type": "string",
+          "description": "ICD-10コード"
+        },
+        "diagnosisDate": {
+          "type": "string",
+          "format": "date",
+          "description": "診断日（YYYY-MM-DD形式）"
+        },
+        "diagnosingDoctor": {
+          "type": "string",
+          "description": "診断医"
+        },
+        "medicalInstitution": {
+          "type": "string",
+          "description": "医療機関"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["継続", "寛解", "治癒"],
+          "description": "状態（必須）"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "LegalGuardianProperties": {
+      "type": "object",
+      "required": ["name", "guardianshipType", "guardianCategory", "startDate"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "後見人氏名（必須）"
+        },
+        "guardianshipType": {
+          "type": "string",
+          "enum": ["後見", "保佐", "補助", "任意後見"],
+          "description": "後見類型（必須）"
+        },
+        "guardianCategory": {
+          "type": "string",
+          "enum": ["親族", "専門職"],
+          "description": "後見人種別（必須）"
+        },
+        "profession": {
+          "type": "string",
+          "enum": ["弁護士", "司法書士", "社会福祉士", "行政書士", "その他"],
+          "description": "専門職種（専門職の場合）"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "description": "開始日（YYYY-MM-DD形式、必須）"
+        },
+        "authority": {
+          "type": "string",
+          "description": "権限範囲"
+        },
+        "contact": {
+          "type": "string",
+          "description": "連絡先"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "ConsultationSupportProperties": {
+      "type": "object",
+      "required": ["officeName", "supportType"],
+      "properties": {
+        "officeName": {
+          "type": "string",
+          "description": "事業所名（必須）"
+        },
+        "officeNumber": {
+          "type": "string",
+          "pattern": "^[0-9]{10}$",
+          "description": "事業所番号（10桁）"
+        },
+        "supportType": {
+          "type": "string",
+          "enum": ["特定相談支援", "一般相談支援", "特定・一般相談支援"],
+          "description": "支援種別（必須）"
+        },
+        "address": {
+          "type": "string",
+          "description": "住所"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "contractDate": {
+          "type": "string",
+          "format": "date",
+          "description": "契約日（YYYY-MM-DD形式）"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "ConsultationSupportSpecialistProperties": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "専門員氏名（必須）"
+        },
+        "qualificationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "資格取得日（YYYY-MM-DD形式）"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "メールアドレス"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "ServicePlanProperties": {
+      "type": "object",
+      "required": ["creationDate", "status"],
+      "properties": {
+        "planNumber": {
+          "type": "string",
+          "description": "計画番号"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "作成日（YYYY-MM-DD形式、必須）"
+        },
+        "lastMonitoringDate": {
+          "type": "string",
+          "format": "date",
+          "description": "前回モニタリング日（YYYY-MM-DD形式）"
+        },
+        "nextMonitoringDate": {
+          "type": "string",
+          "format": "date",
+          "description": "次回モニタリング予定日（YYYY-MM-DD形式）"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["有効", "期限切れ", "見直し中"],
+          "description": "状態（必須）"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "SupportServiceProperties": {
+      "type": "object",
+      "required": ["serviceType", "officeName"],
+      "properties": {
+        "serviceType": {
+          "type": "string",
+          "description": "サービス種別（必須）例：生活介護、就労継続支援B型"
+        },
+        "officeName": {
+          "type": "string",
+          "description": "事業所名（必須）"
+        },
+        "officeNumber": {
+          "type": "string",
+          "pattern": "^[0-9]{10}$",
+          "description": "事業所番号（10桁）"
+        },
+        "address": {
+          "type": "string",
+          "description": "住所"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "ServiceManagerProperties": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "サービス管理責任者氏名（必須）"
+        },
+        "qualificationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "資格取得日（YYYY-MM-DD形式）"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "メールアドレス"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "ServiceContractProperties": {
+      "type": "object",
+      "required": ["contractDate", "status"],
+      "properties": {
+        "contractDate": {
+          "type": "string",
+          "format": "date",
+          "description": "契約日（YYYY-MM-DD形式、必須）"
+        },
+        "frequency": {
+          "type": "string",
+          "description": "利用頻度 例：週3回、月10日"
+        },
+        "daysOfWeek": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["月", "火", "水", "木", "金", "土", "日"]
+          },
+          "description": "利用曜日"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["契約中", "体験中", "契約終了"],
+          "description": "状態（必須）"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "MedicalInstitutionProperties": {
+      "type": "object",
+      "required": ["institutionName", "department"],
+      "properties": {
+        "institutionName": {
+          "type": "string",
+          "description": "医療機関名（必須）"
+        },
+        "department": {
+          "type": "string",
+          "description": "診療科（必須）"
+        },
+        "address": {
+          "type": "string",
+          "description": "住所"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "visitStartDate": {
+          "type": "string",
+          "format": "date",
+          "description": "通院開始日（YYYY-MM-DD形式）"
+        },
+        "visitFrequency": {
+          "type": "string",
+          "description": "通院頻度 例：月1回、2週間に1回"
+        },
+        "treatmentContent": {
+          "type": "string",
+          "description": "治療内容"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "DoctorProperties": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "医師氏名（必須）"
+        },
+        "specialty": {
+          "type": "string",
+          "description": "専門分野"
+        },
+        "isPrimaryDoctor": {
+          "type": "boolean",
+          "description": "主治医かどうか",
+          "default": false
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "MedicationProperties": {
+      "type": "object",
+      "required": ["medicationName", "dosage"],
+      "properties": {
+        "medicationName": {
+          "type": "string",
+          "description": "薬剤名（必須）"
+        },
+        "dosage": {
+          "type": "string",
+          "description": "用量（必須）例：2mg 朝夕"
+        },
+        "prescriptionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "処方開始日（YYYY-MM-DD形式）"
+        },
+        "purpose": {
+          "type": "string",
+          "description": "処方目的"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    },
+    
+    "GovernmentProperties": {
+      "type": "object",
+      "required": ["organizationName"],
+      "properties": {
+        "organizationName": {
+          "type": "string",
+          "description": "組織名（必須）"
+        },
+        "department": {
+          "type": "string",
+          "description": "担当部署"
+        },
+        "personInCharge": {
+          "type": "string",
+          "description": "担当者名"
+        },
+        "address": {
+          "type": "string",
+          "description": "住所"
+        },
+        "phone": {
+          "type": "string",
+          "description": "電話番号"
+        },
+        "notes": {
+          "type": "string",
+          "description": "備考"
+        }
+      }
+    }
+  }
+}

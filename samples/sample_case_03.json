@@ -1,0 +1,679 @@
+{
+  "metadata": {
+    "created_at": "2025-10-21T10:00:00+09:00",
+    "updated_at": "2025-10-21T10:00:00+09:00",
+    "version": "1.0.0",
+    "created_by": "エコマップ作成スキル v1.0",
+    "notes": "サンプルケース03: 鈴木正雄さん（高齢層・成年後見あり・療育手帳B判定・生活介護利用中）"
+  },
+  
+  "nodes": [
+    {
+      "id": "person-003",
+      "type": "Person",
+      "properties": {
+        "name": "鈴木正雄",
+        "birthDate": "1955-03-05",
+        "age": 70,
+        "gender": "男",
+        "postalCode": "807-0801",
+        "address": "福岡県北九州市八幡西区本城1-1-1（特別養護老人ホームあさひ）",
+        "phone": "093-888-9999",
+        "emergencyContact": "成年後見人（弁護士 中村信二）093-999-0000",
+        "notes": "知的障害・成年後見制度利用・特養入所中"
+      },
+      "display": {
+        "color": "#FF8C00",
+        "icon": "🧑",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "family-006",
+      "type": "Family",
+      "properties": {
+        "name": "鈴木花子",
+        "relation": "妹",
+        "birthDate": "1960-07-20",
+        "age": 65,
+        "gender": "女",
+        "cohabiting": false,
+        "primaryCaregiver": false,
+        "address": "福岡県中間市中間1-1-1",
+        "phone": "093-000-1111",
+        "notes": "親族、年数回面会"
+      },
+      "display": {
+        "color": "#DC143C",
+        "icon": "👩",
+        "layer": "family",
+        "visible": false
+      }
+    },
+    {
+      "id": "notebook-003",
+      "type": "RyoikuNotebook",
+      "properties": {
+        "notebookType": "療育手帳",
+        "grade": "B1",
+        "notebookNumber": "40123456",
+        "issueDate": "1975-04-01",
+        "expirationDate": "2030-03-31",
+        "issueAuthority": "福岡県知事",
+        "status": "有効",
+        "notes": "中度判定、昭和50年初回交付"
+      },
+      "display": {
+        "color": "#8B0000",
+        "icon": "📕",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "notebook-003-old",
+      "type": "RyoikuNotebook",
+      "properties": {
+        "notebookType": "療育手帳",
+        "grade": "B1",
+        "notebookNumber": "40123455",
+        "issueDate": "2020-04-01",
+        "expirationDate": "2025-03-31",
+        "issueAuthority": "福岡県知事",
+        "status": "更新済み",
+        "notes": "前回手帳（履歴）"
+      },
+      "display": {
+        "color": "#8B0000",
+        "icon": "📕",
+        "layer": "history",
+        "visible": false
+      }
+    },
+    {
+      "id": "support-level-003",
+      "type": "SupportLevel",
+      "properties": {
+        "level": "4",
+        "decisionDate": "2024-02-01",
+        "expirationDate": "2027-01-31",
+        "decisionAuthority": "北九州市長",
+        "investigator": "北九州市障害福祉課",
+        "status": "現在",
+        "notes": ""
+      },
+      "display": {
+        "color": "#800080",
+        "icon": "📊",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "support-level-003-old",
+      "type": "SupportLevel",
+      "properties": {
+        "level": "3",
+        "decisionDate": "2021-02-01",
+        "expirationDate": "2024-01-31",
+        "decisionAuthority": "北九州市長",
+        "investigator": "北九州市障害福祉課",
+        "status": "期限切れ",
+        "notes": "前回区分（履歴）"
+      },
+      "display": {
+        "color": "#800080",
+        "icon": "📊",
+        "layer": "history",
+        "visible": false
+      }
+    },
+    {
+      "id": "diagnosis-003",
+      "type": "Diagnosis",
+      "properties": {
+        "diagnosisName": "知的障害（中度）",
+        "icd10Code": "F71",
+        "diagnosisDate": "1975-01-15",
+        "diagnosingDoctor": "（記録なし）",
+        "medicalInstitution": "（記録なし）",
+        "status": "継続",
+        "notes": "幼少期に診断、記録詳細不明"
+      },
+      "display": {
+        "color": "#00CED1",
+        "icon": "🏥",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "legal-guardian-001",
+      "type": "LegalGuardian",
+      "properties": {
+        "name": "中村信二",
+        "guardianshipType": "後見",
+        "guardianCategory": "専門職",
+        "profession": "弁護士",
+        "startDate": "2020-06-01",
+        "authority": "財産管理・身上監護全般",
+        "contact": "093-999-0000",
+        "notes": "法律事務所なかむら所属"
+      },
+      "display": {
+        "color": "#8B4513",
+        "icon": "⚖️",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "consultation-support-003",
+      "type": "ConsultationSupport",
+      "properties": {
+        "officeName": "相談支援事業所みらい",
+        "officeNumber": "4056789012",
+        "supportType": "特定相談支援",
+        "address": "福岡県北九州市八幡西区黒崎3-10-1",
+        "phone": "093-111-2222",
+        "contractDate": "2020-07-01",
+        "notes": ""
+      },
+      "display": {
+        "color": "#9370DB",
+        "icon": "🟣",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "specialist-003",
+      "type": "ConsultationSupportSpecialist",
+      "properties": {
+        "name": "木村由美子",
+        "qualificationDate": "2010-03-31",
+        "phone": "093-111-2222",
+        "email": "kimura@mirai-soudan.jp",
+        "notes": "相談支援専門員（実務経験15年）"
+      },
+      "display": {
+        "color": "#4169E1",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-plan-003",
+      "type": "ServicePlan",
+      "properties": {
+        "planNumber": "2024-003-0789",
+        "creationDate": "2024-02-01",
+        "lastMonitoringDate": "2024-08-01",
+        "nextMonitoringDate": "2025-02-01",
+        "status": "有効",
+        "notes": ""
+      },
+      "display": {
+        "color": "#6A5ACD",
+        "icon": "📋",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "service-plan-003-old",
+      "type": "ServicePlan",
+      "properties": {
+        "planNumber": "2023-003-0123",
+        "creationDate": "2023-02-01",
+        "lastMonitoringDate": "2024-01-01",
+        "nextMonitoringDate": "2024-02-01",
+        "status": "期限切れ",
+        "notes": "前回計画（履歴）"
+      },
+      "display": {
+        "color": "#6A5ACD",
+        "icon": "📋",
+        "layer": "history",
+        "visible": false
+      }
+    },
+    {
+      "id": "support-service-004",
+      "type": "SupportService",
+      "properties": {
+        "serviceType": "生活介護",
+        "officeName": "デイサービスセンターなごみ",
+        "officeNumber": "4057890123",
+        "address": "福岡県北九州市八幡西区永犬丸1-1-1",
+        "phone": "093-222-3333",
+        "notes": "高齢障害者対応型"
+      },
+      "display": {
+        "color": "#32CD32",
+        "icon": "🟢",
+        "layer": "support",
+        "visible": true
+      }
+    },
+    {
+      "id": "service-manager-004",
+      "type": "ServiceManager",
+      "properties": {
+        "name": "松本誠",
+        "qualificationDate": "2012-03-31",
+        "phone": "093-222-3333",
+        "email": "matsumoto@nagomi-ds.jp",
+        "notes": "サービス管理責任者（実務経験13年）"
+      },
+      "display": {
+        "color": "#228B22",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-contract-004",
+      "type": "ServiceContract",
+      "properties": {
+        "contractDate": "2020-08-01",
+        "frequency": "週3日",
+        "daysOfWeek": ["火", "水", "木"],
+        "status": "契約中",
+        "notes": "送迎あり、10:00-15:00"
+      },
+      "display": {
+        "color": "#3CB371",
+        "icon": "📝",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "support-service-005",
+      "type": "SupportService",
+      "properties": {
+        "serviceType": "短期入所（ショートステイ）",
+        "officeName": "障害者支援施設はまゆう",
+        "officeNumber": "4058901234",
+        "address": "福岡県北九州市八幡西区折尾3-1-1",
+        "phone": "093-333-4444",
+        "notes": "緊急時対応可"
+      },
+      "display": {
+        "color": "#32CD32",
+        "icon": "🏨",
+        "layer": "support",
+        "visible": true
+      }
+    },
+    {
+      "id": "service-manager-005",
+      "type": "ServiceManager",
+      "properties": {
+        "name": "小林優子",
+        "qualificationDate": "2014-03-31",
+        "phone": "093-333-4444",
+        "email": "kobayashi@hamayuu.jp",
+        "notes": "サービス管理責任者（実務経験11年）"
+      },
+      "display": {
+        "color": "#228B22",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-contract-005",
+      "type": "ServiceContract",
+      "properties": {
+        "contractDate": "2020-09-01",
+        "frequency": "月1-2回",
+        "daysOfWeek": [],
+        "status": "契約中",
+        "notes": "レスパイト、緊急時利用"
+      },
+      "display": {
+        "color": "#3CB371",
+        "icon": "📝",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "medical-institution-003",
+      "type": "MedicalInstitution",
+      "properties": {
+        "institutionName": "八幡病院",
+        "department": "内科",
+        "address": "福岡県北九州市八幡西区岸の浦1-1-1",
+        "phone": "093-621-6001",
+        "visitStartDate": "2010-04-01",
+        "visitFrequency": "2-3ヶ月に1回",
+        "treatmentContent": "高血圧、糖尿病管理",
+        "notes": ""
+      },
+      "display": {
+        "color": "#5F9EA0",
+        "icon": "🩺",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "doctor-003",
+      "type": "Doctor",
+      "properties": {
+        "name": "佐藤健一",
+        "specialty": "内科",
+        "isPrimaryDoctor": true,
+        "notes": "主治医"
+      },
+      "display": {
+        "color": "#4682B4",
+        "icon": "👨‍⚕️",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "medication-003",
+      "type": "Medication",
+      "properties": {
+        "medicationName": "アムロジピン",
+        "dosage": "5mg 朝",
+        "prescriptionDate": "2010-04-01",
+        "purpose": "降圧剤",
+        "notes": ""
+      },
+      "display": {
+        "color": "#DB7093",
+        "icon": "💊",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "medication-004",
+      "type": "Medication",
+      "properties": {
+        "medicationName": "メトホルミン",
+        "dosage": "500mg 朝夕",
+        "prescriptionDate": "2015-06-01",
+        "purpose": "血糖降下剤",
+        "notes": ""
+      },
+      "display": {
+        "color": "#DB7093",
+        "icon": "💊",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "government-003",
+      "type": "Government",
+      "properties": {
+        "organizationName": "北九州市 保健福祉局 障害福祉課",
+        "department": "給付係",
+        "personInCharge": "田口三郎",
+        "address": "福岡県北九州市小倉北区城内1-1",
+        "phone": "093-582-2453",
+        "notes": ""
+      },
+      "display": {
+        "color": "#A9A9A9",
+        "icon": "🏛️",
+        "layer": "support",
+        "visible": false
+      }
+    }
+  ],
+  
+  "relationships": [
+    {
+      "id": "rel-051",
+      "type": "HAS_NOTEBOOK",
+      "from": "person-003",
+      "to": "notebook-003",
+      "properties": {
+        "note": "現在有効な手帳"
+      }
+    },
+    {
+      "id": "rel-052",
+      "type": "HAS_NOTEBOOK",
+      "from": "person-003",
+      "to": "notebook-003-old",
+      "properties": {
+        "note": "前回手帳（履歴）"
+      }
+    },
+    {
+      "id": "rel-053",
+      "type": "RENEWED_FROM",
+      "from": "notebook-003",
+      "to": "notebook-003-old",
+      "properties": {
+        "renewalDate": "2025-04-01",
+        "note": "手帳更新の履歴"
+      }
+    },
+    {
+      "id": "rel-054",
+      "type": "HAS_SUPPORT_LEVEL",
+      "from": "person-003",
+      "to": "support-level-003",
+      "properties": {
+        "note": "現在の支援区分"
+      }
+    },
+    {
+      "id": "rel-055",
+      "type": "HAS_SUPPORT_LEVEL",
+      "from": "person-003",
+      "to": "support-level-003-old",
+      "properties": {
+        "note": "前回の支援区分（履歴）"
+      }
+    },
+    {
+      "id": "rel-056",
+      "type": "CHANGED_FROM",
+      "from": "support-level-003",
+      "to": "support-level-003-old",
+      "properties": {
+        "changeDate": "2024-02-01",
+        "note": "区分3→区分4へ変更"
+      }
+    },
+    {
+      "id": "rel-057",
+      "type": "HAS_DIAGNOSIS",
+      "from": "person-003",
+      "to": "diagnosis-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-058",
+      "type": "FAMILY_RELATION",
+      "from": "person-003",
+      "to": "family-006",
+      "properties": {
+        "relation": "兄妹関係"
+      }
+    },
+    {
+      "id": "rel-059",
+      "type": "UNDER_GUARDIANSHIP",
+      "from": "person-003",
+      "to": "legal-guardian-001",
+      "properties": {
+        "startDate": "2020-06-01",
+        "note": "成年後見制度利用中"
+      }
+    },
+    {
+      "id": "rel-060",
+      "type": "HAS_SERVICE_PLAN",
+      "from": "person-003",
+      "to": "service-plan-003",
+      "properties": {
+        "note": "現在の計画"
+      }
+    },
+    {
+      "id": "rel-061",
+      "type": "HAS_SERVICE_PLAN",
+      "from": "person-003",
+      "to": "service-plan-003-old",
+      "properties": {
+        "note": "前回の計画（履歴）"
+      }
+    },
+    {
+      "id": "rel-062",
+      "type": "REVISED_FROM",
+      "from": "service-plan-003",
+      "to": "service-plan-003-old",
+      "properties": {
+        "revisionDate": "2024-02-01",
+        "note": "計画見直し"
+      }
+    },
+    {
+      "id": "rel-063",
+      "type": "HAS_CONTRACT",
+      "from": "person-003",
+      "to": "service-contract-004",
+      "properties": {
+        "note": "生活介護契約"
+      }
+    },
+    {
+      "id": "rel-064",
+      "type": "HAS_CONTRACT",
+      "from": "person-003",
+      "to": "service-contract-005",
+      "properties": {
+        "note": "短期入所契約"
+      }
+    },
+    {
+      "id": "rel-065",
+      "type": "RECEIVES_MEDICAL_CARE",
+      "from": "person-003",
+      "to": "medical-institution-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-066",
+      "type": "TREATED_BY",
+      "from": "person-003",
+      "to": "doctor-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-067",
+      "type": "TAKES_MEDICATION",
+      "from": "person-003",
+      "to": "medication-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-068",
+      "type": "TAKES_MEDICATION",
+      "from": "person-003",
+      "to": "medication-004",
+      "properties": {}
+    },
+    {
+      "id": "rel-069",
+      "type": "CREATED_BY",
+      "from": "service-plan-003",
+      "to": "specialist-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-070",
+      "type": "CREATED_BY",
+      "from": "service-plan-003-old",
+      "to": "specialist-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-071",
+      "type": "WORKS_FOR",
+      "from": "specialist-003",
+      "to": "consultation-support-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-072",
+      "type": "CONTRACT_WITH",
+      "from": "service-contract-004",
+      "to": "support-service-004",
+      "properties": {}
+    },
+    {
+      "id": "rel-073",
+      "type": "MANAGED_BY",
+      "from": "service-contract-004",
+      "to": "service-manager-004",
+      "properties": {}
+    },
+    {
+      "id": "rel-074",
+      "type": "WORKS_FOR",
+      "from": "service-manager-004",
+      "to": "support-service-004",
+      "properties": {}
+    },
+    {
+      "id": "rel-075",
+      "type": "CONTRACT_WITH",
+      "from": "service-contract-005",
+      "to": "support-service-005",
+      "properties": {}
+    },
+    {
+      "id": "rel-076",
+      "type": "MANAGED_BY",
+      "from": "service-contract-005",
+      "to": "service-manager-005",
+      "properties": {}
+    },
+    {
+      "id": "rel-077",
+      "type": "WORKS_FOR",
+      "from": "service-manager-005",
+      "to": "support-service-005",
+      "properties": {}
+    },
+    {
+      "id": "rel-078",
+      "type": "WORKS_FOR",
+      "from": "doctor-003",
+      "to": "medical-institution-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-079",
+      "type": "PRESCRIBED_BY",
+      "from": "medication-003",
+      "to": "doctor-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-080",
+      "type": "PRESCRIBED_BY",
+      "from": "medication-004",
+      "to": "doctor-003",
+      "properties": {}
+    }
+  ]
+}

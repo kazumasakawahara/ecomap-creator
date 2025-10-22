@@ -1,0 +1,561 @@
+{
+  "metadata": {
+    "created_at": "2025-10-21T09:30:00+09:00",
+    "updated_at": "2025-10-21T09:30:00+09:00",
+    "version": "1.0.0",
+    "created_by": "エコマップ作成スキル v1.0",
+    "notes": "サンプルケース02: 田中花子さん（中年層・グループホーム・精神保健福祉手帳2級・就労継続支援B型利用中）"
+  },
+  
+  "nodes": [
+    {
+      "id": "person-002",
+      "type": "Person",
+      "properties": {
+        "name": "田中花子",
+        "birthDate": "1990-08-15",
+        "age": 35,
+        "gender": "女",
+        "postalCode": "803-0814",
+        "address": "福岡県北九州市小倉北区大手町12-3（グループホームさくら）",
+        "phone": "093-444-5555",
+        "emergencyContact": "兄（田中一郎）090-2222-3333",
+        "notes": "統合失調症・グループホーム入居中"
+      },
+      "display": {
+        "color": "#FF8C00",
+        "icon": "🧑",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "family-004",
+      "type": "Family",
+      "properties": {
+        "name": "田中一郎",
+        "relation": "兄",
+        "birthDate": "1987-03-20",
+        "age": 38,
+        "gender": "男",
+        "cohabiting": false,
+        "primaryCaregiver": true,
+        "address": "福岡県北九州市八幡西区黒崎3-1-1",
+        "phone": "090-2222-3333",
+        "notes": "身元引受人、月1回面会"
+      },
+      "display": {
+        "color": "#DC143C",
+        "icon": "👨",
+        "layer": "family",
+        "visible": true
+      }
+    },
+    {
+      "id": "family-005",
+      "type": "Family",
+      "properties": {
+        "name": "田中太郎",
+        "relation": "父",
+        "birthDate": "1960-12-10",
+        "age": 64,
+        "gender": "男",
+        "cohabiting": false,
+        "primaryCaregiver": false,
+        "address": "福岡県下関市竹崎町1-1-1",
+        "phone": "083-111-2222",
+        "notes": "下関市在住、年1-2回連絡"
+      },
+      "display": {
+        "color": "#DC143C",
+        "icon": "👨",
+        "layer": "family",
+        "visible": false
+      }
+    },
+    {
+      "id": "notebook-002",
+      "type": "MentalHealthNotebook",
+      "properties": {
+        "notebookType": "精神保健福祉手帳",
+        "grade": "2級",
+        "notebookNumber": "40987654",
+        "issueDate": "2023-07-01",
+        "expirationDate": "2025-06-30",
+        "issueAuthority": "福岡県知事",
+        "status": "有効",
+        "notes": ""
+      },
+      "display": {
+        "color": "#006400",
+        "icon": "📗",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "support-level-002",
+      "type": "SupportLevel",
+      "properties": {
+        "level": "3",
+        "decisionDate": "2023-08-15",
+        "expirationDate": "2026-08-14",
+        "decisionAuthority": "北九州市長",
+        "investigator": "北九州市障害福祉課",
+        "status": "現在",
+        "notes": ""
+      },
+      "display": {
+        "color": "#800080",
+        "icon": "📊",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "diagnosis-002",
+      "type": "Diagnosis",
+      "properties": {
+        "diagnosisName": "統合失調症",
+        "icd10Code": "F20.0",
+        "diagnosisDate": "2015-04-10",
+        "diagnosingDoctor": "高橋美和",
+        "medicalInstitution": "小倉記念病院",
+        "status": "継続",
+        "notes": "陽性症状は軽減、服薬継続中"
+      },
+      "display": {
+        "color": "#00CED1",
+        "icon": "🏥",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "consultation-support-002",
+      "type": "ConsultationSupport",
+      "properties": {
+        "officeName": "障害者相談支援センターあおぞら",
+        "officeNumber": "4053456789",
+        "supportType": "特定相談支援",
+        "address": "福岡県北九州市小倉北区米町1-3-10",
+        "phone": "093-555-6666",
+        "contractDate": "2022-10-01",
+        "notes": ""
+      },
+      "display": {
+        "color": "#9370DB",
+        "icon": "🟣",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "specialist-002",
+      "type": "ConsultationSupportSpecialist",
+      "properties": {
+        "name": "佐々木健一",
+        "qualificationDate": "2016-03-31",
+        "phone": "093-555-6666",
+        "email": "sasaki@aozora-soudan.jp",
+        "notes": "相談支援専門員（実務経験9年、精神保健福祉士）"
+      },
+      "display": {
+        "color": "#4169E1",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-plan-002",
+      "type": "ServicePlan",
+      "properties": {
+        "planNumber": "2024-002-0456",
+        "creationDate": "2024-10-01",
+        "lastMonitoringDate": "2024-10-01",
+        "nextMonitoringDate": "2025-04-01",
+        "status": "有効",
+        "notes": ""
+      },
+      "display": {
+        "color": "#6A5ACD",
+        "icon": "📋",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "support-service-002",
+      "type": "SupportService",
+      "properties": {
+        "serviceType": "共同生活援助（グループホーム）",
+        "officeName": "グループホームさくら",
+        "officeNumber": "4054567890",
+        "address": "福岡県北九州市小倉北区大手町12-3",
+        "phone": "093-666-7777",
+        "notes": "女性専用、定員6名"
+      },
+      "display": {
+        "color": "#32CD32",
+        "icon": "🏠",
+        "layer": "support",
+        "visible": true
+      }
+    },
+    {
+      "id": "service-manager-002",
+      "type": "ServiceManager",
+      "properties": {
+        "name": "渡辺真理子",
+        "qualificationDate": "2017-03-31",
+        "phone": "093-666-7777",
+        "email": "watanabe@gh-sakura.jp",
+        "notes": "サービス管理責任者（実務経験8年）"
+      },
+      "display": {
+        "color": "#228B22",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-contract-002",
+      "type": "ServiceContract",
+      "properties": {
+        "contractDate": "2022-11-01",
+        "frequency": "常時（入居）",
+        "daysOfWeek": ["月", "火", "水", "木", "金", "土", "日"],
+        "status": "契約中",
+        "notes": "入居中"
+      },
+      "display": {
+        "color": "#3CB371",
+        "icon": "📝",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "support-service-003",
+      "type": "SupportService",
+      "properties": {
+        "serviceType": "就労継続支援B型",
+        "officeName": "ワークサポートセンターきぼう",
+        "officeNumber": "4055678901",
+        "address": "福岡県北九州市小倉北区古船場町1-35",
+        "phone": "093-777-8888",
+        "notes": "軽作業・内職作業"
+      },
+      "display": {
+        "color": "#32CD32",
+        "icon": "💼",
+        "layer": "support",
+        "visible": true
+      }
+    },
+    {
+      "id": "service-manager-003",
+      "type": "ServiceManager",
+      "properties": {
+        "name": "伊藤健太",
+        "qualificationDate": "2019-03-31",
+        "phone": "093-777-8888",
+        "email": "ito@kibou-work.jp",
+        "notes": "サービス管理責任者（実務経験6年）"
+      },
+      "display": {
+        "color": "#228B22",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-contract-003",
+      "type": "ServiceContract",
+      "properties": {
+        "contractDate": "2023-04-01",
+        "frequency": "週4日",
+        "daysOfWeek": ["月", "火", "木", "金"],
+        "status": "契約中",
+        "notes": "10:00-15:00"
+      },
+      "display": {
+        "color": "#3CB371",
+        "icon": "📝",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "medical-institution-002",
+      "type": "MedicalInstitution",
+      "properties": {
+        "institutionName": "小倉記念病院",
+        "department": "精神科",
+        "address": "福岡県北九州市小倉北区浅野3-2-1",
+        "phone": "093-511-2000",
+        "visitStartDate": "2015-05-01",
+        "visitFrequency": "月1回",
+        "treatmentContent": "薬物療法、デイケア",
+        "notes": ""
+      },
+      "display": {
+        "color": "#5F9EA0",
+        "icon": "🩺",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "doctor-002",
+      "type": "Doctor",
+      "properties": {
+        "name": "高橋美和",
+        "specialty": "精神科",
+        "isPrimaryDoctor": true,
+        "notes": "主治医、月1回診察"
+      },
+      "display": {
+        "color": "#4682B4",
+        "icon": "👨‍⚕️",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "medication-001",
+      "type": "Medication",
+      "properties": {
+        "medicationName": "リスペリドン",
+        "dosage": "2mg 朝夕",
+        "prescriptionDate": "2015-05-01",
+        "purpose": "抗精神病薬",
+        "notes": ""
+      },
+      "display": {
+        "color": "#DB7093",
+        "icon": "💊",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "medication-002",
+      "type": "Medication",
+      "properties": {
+        "medicationName": "バルプロ酸",
+        "dosage": "200mg 朝昼夕",
+        "prescriptionDate": "2016-03-15",
+        "purpose": "気分安定薬",
+        "notes": ""
+      },
+      "display": {
+        "color": "#DB7093",
+        "icon": "💊",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "government-002",
+      "type": "Government",
+      "properties": {
+        "organizationName": "北九州市 保健福祉局 障害福祉課",
+        "department": "給付係",
+        "personInCharge": "山本二郎",
+        "address": "福岡県北九州市小倉北区城内1-1",
+        "phone": "093-582-2453",
+        "notes": ""
+      },
+      "display": {
+        "color": "#A9A9A9",
+        "icon": "🏛️",
+        "layer": "support",
+        "visible": false
+      }
+    }
+  ],
+  
+  "relationships": [
+    {
+      "id": "rel-021",
+      "type": "HAS_NOTEBOOK",
+      "from": "person-002",
+      "to": "notebook-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-022",
+      "type": "HAS_SUPPORT_LEVEL",
+      "from": "person-002",
+      "to": "support-level-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-023",
+      "type": "HAS_DIAGNOSIS",
+      "from": "person-002",
+      "to": "diagnosis-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-024",
+      "type": "FAMILY_RELATION",
+      "from": "person-002",
+      "to": "family-004",
+      "properties": {
+        "relation": "兄妹関係",
+        "note": "身元引受人"
+      }
+    },
+    {
+      "id": "rel-025",
+      "type": "FAMILY_RELATION",
+      "from": "person-002",
+      "to": "family-005",
+      "properties": {
+        "relation": "父娘関係"
+      }
+    },
+    {
+      "id": "rel-026",
+      "type": "HAS_SERVICE_PLAN",
+      "from": "person-002",
+      "to": "service-plan-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-027",
+      "type": "HAS_CONTRACT",
+      "from": "person-002",
+      "to": "service-contract-002",
+      "properties": {
+        "note": "グループホーム契約"
+      }
+    },
+    {
+      "id": "rel-028",
+      "type": "HAS_CONTRACT",
+      "from": "person-002",
+      "to": "service-contract-003",
+      "properties": {
+        "note": "就労継続支援B型契約"
+      }
+    },
+    {
+      "id": "rel-029",
+      "type": "RECEIVES_MEDICAL_CARE",
+      "from": "person-002",
+      "to": "medical-institution-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-030",
+      "type": "TREATED_BY",
+      "from": "person-002",
+      "to": "doctor-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-031",
+      "type": "TAKES_MEDICATION",
+      "from": "person-002",
+      "to": "medication-001",
+      "properties": {}
+    },
+    {
+      "id": "rel-032",
+      "type": "TAKES_MEDICATION",
+      "from": "person-002",
+      "to": "medication-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-033",
+      "type": "CREATED_BY",
+      "from": "service-plan-002",
+      "to": "specialist-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-034",
+      "type": "WORKS_FOR",
+      "from": "specialist-002",
+      "to": "consultation-support-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-035",
+      "type": "CONTRACT_WITH",
+      "from": "service-contract-002",
+      "to": "support-service-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-036",
+      "type": "MANAGED_BY",
+      "from": "service-contract-002",
+      "to": "service-manager-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-037",
+      "type": "WORKS_FOR",
+      "from": "service-manager-002",
+      "to": "support-service-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-038",
+      "type": "CONTRACT_WITH",
+      "from": "service-contract-003",
+      "to": "support-service-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-039",
+      "type": "MANAGED_BY",
+      "from": "service-contract-003",
+      "to": "service-manager-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-040",
+      "type": "WORKS_FOR",
+      "from": "service-manager-003",
+      "to": "support-service-003",
+      "properties": {}
+    },
+    {
+      "id": "rel-041",
+      "type": "DIAGNOSED_BY",
+      "from": "diagnosis-002",
+      "to": "doctor-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-042",
+      "type": "WORKS_FOR",
+      "from": "doctor-002",
+      "to": "medical-institution-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-043",
+      "type": "PRESCRIBED_BY",
+      "from": "medication-001",
+      "to": "doctor-002",
+      "properties": {}
+    },
+    {
+      "id": "rel-044",
+      "type": "PRESCRIBED_BY",
+      "from": "medication-002",
+      "to": "doctor-002",
+      "properties": {}
+    }
+  ]
+}

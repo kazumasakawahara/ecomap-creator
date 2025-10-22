@@ -1,0 +1,472 @@
+{
+  "metadata": {
+    "created_at": "2025-10-21T09:00:00+09:00",
+    "updated_at": "2025-10-21T09:00:00+09:00",
+    "version": "1.0.0",
+    "created_by": "エコマップ作成スキル v1.0",
+    "notes": "サンプルケース01: 佐藤健太さん（若年層・家族同居・療育手帳A判定・生活介護利用中）"
+  },
+  
+  "nodes": [
+    {
+      "id": "person-001",
+      "type": "Person",
+      "properties": {
+        "name": "佐藤健太",
+        "birthDate": "2021-04-01",
+        "age": 4,
+        "gender": "男",
+        "postalCode": "802-0001",
+        "address": "福岡県北九州市小倉北区浅野1-1-1",
+        "phone": "093-123-4567",
+        "emergencyContact": "母（佐藤由美）090-1234-5678",
+        "notes": "知的障害・自閉スペクトラム症"
+      },
+      "display": {
+        "color": "#FF8C00",
+        "icon": "🧑",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "family-001",
+      "type": "Family",
+      "properties": {
+        "name": "佐藤太郎",
+        "relation": "父",
+        "birthDate": "1985-06-15",
+        "age": 40,
+        "gender": "男",
+        "cohabiting": true,
+        "primaryCaregiver": false,
+        "phone": "090-1111-2222",
+        "notes": "会社員"
+      },
+      "display": {
+        "color": "#DC143C",
+        "icon": "👨",
+        "layer": "family",
+        "visible": true
+      }
+    },
+    {
+      "id": "family-002",
+      "type": "Family",
+      "properties": {
+        "name": "佐藤由美",
+        "relation": "母",
+        "birthDate": "1987-09-20",
+        "age": 38,
+        "gender": "女",
+        "cohabiting": true,
+        "primaryCaregiver": true,
+        "phone": "090-1234-5678",
+        "notes": "主介護者、パート勤務"
+      },
+      "display": {
+        "color": "#DC143C",
+        "icon": "👩",
+        "layer": "family",
+        "visible": true
+      }
+    },
+    {
+      "id": "family-003",
+      "type": "Family",
+      "properties": {
+        "name": "佐藤花子",
+        "relation": "姉",
+        "birthDate": "2019-03-10",
+        "age": 6,
+        "gender": "女",
+        "cohabiting": true,
+        "primaryCaregiver": false,
+        "notes": "小学1年生"
+      },
+      "display": {
+        "color": "#DC143C",
+        "icon": "👧",
+        "layer": "family",
+        "visible": true
+      }
+    },
+    {
+      "id": "notebook-001",
+      "type": "RyoikuNotebook",
+      "properties": {
+        "notebookType": "療育手帳",
+        "grade": "A1",
+        "notebookNumber": "40001234",
+        "issueDate": "2023-05-15",
+        "expirationDate": "2028-05-14",
+        "issueAuthority": "福岡県知事",
+        "status": "有効",
+        "notes": "最重度判定"
+      },
+      "display": {
+        "color": "#8B0000",
+        "icon": "📕",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "support-level-001",
+      "type": "SupportLevel",
+      "properties": {
+        "level": "6",
+        "decisionDate": "2023-06-01",
+        "expirationDate": "2026-05-31",
+        "decisionAuthority": "北九州市長",
+        "investigator": "北九州市障害福祉課",
+        "status": "現在",
+        "notes": "区分6（最重度）"
+      },
+      "display": {
+        "color": "#800080",
+        "icon": "📊",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "diagnosis-001",
+      "type": "Diagnosis",
+      "properties": {
+        "diagnosisName": "自閉スペクトラム症",
+        "icd10Code": "F84.0",
+        "diagnosisDate": "2023-01-20",
+        "diagnosingDoctor": "山田太郎",
+        "medicalInstitution": "北九州市立総合療育センター",
+        "status": "継続",
+        "notes": "重度知的障害を伴う"
+      },
+      "display": {
+        "color": "#00CED1",
+        "icon": "🏥",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "consultation-support-001",
+      "type": "ConsultationSupport",
+      "properties": {
+        "officeName": "相談支援センターひまわり",
+        "officeNumber": "4051234567",
+        "supportType": "特定相談支援",
+        "address": "福岡県北九州市小倉北区馬借1-7-1",
+        "phone": "093-222-3333",
+        "contractDate": "2023-04-01",
+        "notes": ""
+      },
+      "display": {
+        "color": "#9370DB",
+        "icon": "🟣",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "specialist-001",
+      "type": "ConsultationSupportSpecialist",
+      "properties": {
+        "name": "田中花子",
+        "qualificationDate": "2018-03-31",
+        "phone": "093-222-3333",
+        "email": "tanaka@himawari-soudan.jp",
+        "notes": "相談支援専門員（実務経験7年）"
+      },
+      "display": {
+        "color": "#4169E1",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-plan-001",
+      "type": "ServicePlan",
+      "properties": {
+        "planNumber": "2024-001-0123",
+        "creationDate": "2024-04-01",
+        "lastMonitoringDate": "2024-10-01",
+        "nextMonitoringDate": "2025-04-01",
+        "status": "有効",
+        "notes": "次回更新予定: 2025年4月"
+      },
+      "display": {
+        "color": "#6A5ACD",
+        "icon": "📋",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "support-service-001",
+      "type": "SupportService",
+      "properties": {
+        "serviceType": "生活介護",
+        "officeName": "陽だまりの丘",
+        "officeNumber": "4052345678",
+        "address": "福岡県北九州市小倉北区城内5-1",
+        "phone": "093-333-4444",
+        "notes": "重症心身障害児対応型"
+      },
+      "display": {
+        "color": "#32CD32",
+        "icon": "🟢",
+        "layer": "support",
+        "visible": true
+      }
+    },
+    {
+      "id": "service-manager-001",
+      "type": "ServiceManager",
+      "properties": {
+        "name": "鈴木次郎",
+        "qualificationDate": "2015-03-31",
+        "phone": "093-333-4444",
+        "email": "suzuki@hidamari.jp",
+        "notes": "サービス管理責任者（実務経験10年）"
+      },
+      "display": {
+        "color": "#228B22",
+        "icon": "👤",
+        "layer": "support",
+        "visible": false
+      }
+    },
+    {
+      "id": "service-contract-001",
+      "type": "ServiceContract",
+      "properties": {
+        "contractDate": "2023-04-10",
+        "frequency": "週5日",
+        "daysOfWeek": ["月", "火", "水", "木", "金"],
+        "status": "契約中",
+        "notes": "送迎あり"
+      },
+      "display": {
+        "color": "#3CB371",
+        "icon": "📝",
+        "layer": "default",
+        "visible": true
+      }
+    },
+    {
+      "id": "medical-institution-001",
+      "type": "MedicalInstitution",
+      "properties": {
+        "institutionName": "北九州市立総合療育センター",
+        "department": "小児科",
+        "address": "福岡県北九州市小倉南区春ヶ丘10-2",
+        "phone": "093-922-5596",
+        "visitStartDate": "2022-01-15",
+        "visitFrequency": "月1回",
+        "treatmentContent": "発達支援、健康管理",
+        "notes": ""
+      },
+      "display": {
+        "color": "#5F9EA0",
+        "icon": "🩺",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "doctor-001",
+      "type": "Doctor",
+      "properties": {
+        "name": "山田太郎",
+        "specialty": "小児神経科",
+        "isPrimaryDoctor": true,
+        "notes": "主治医"
+      },
+      "display": {
+        "color": "#4682B4",
+        "icon": "👨‍⚕️",
+        "layer": "medical",
+        "visible": false
+      }
+    },
+    {
+      "id": "government-001",
+      "type": "Government",
+      "properties": {
+        "organizationName": "北九州市 保健福祉局 障害福祉課",
+        "department": "給付係",
+        "personInCharge": "吉田一郎",
+        "address": "福岡県北九州市小倉北区城内1-1",
+        "phone": "093-582-2453",
+        "notes": "障害福祉サービス給付担当"
+      },
+      "display": {
+        "color": "#A9A9A9",
+        "icon": "🏛️",
+        "layer": "support",
+        "visible": false
+      }
+    }
+  ],
+  
+  "relationships": [
+    {
+      "id": "rel-001",
+      "type": "HAS_NOTEBOOK",
+      "from": "person-001",
+      "to": "notebook-001",
+      "properties": {
+        "note": "本人が療育手帳を所持"
+      }
+    },
+    {
+      "id": "rel-002",
+      "type": "HAS_SUPPORT_LEVEL",
+      "from": "person-001",
+      "to": "support-level-001",
+      "properties": {
+        "note": "本人の障害支援区分"
+      }
+    },
+    {
+      "id": "rel-003",
+      "type": "HAS_DIAGNOSIS",
+      "from": "person-001",
+      "to": "diagnosis-001",
+      "properties": {
+        "note": "本人の診断"
+      }
+    },
+    {
+      "id": "rel-004",
+      "type": "FAMILY_RELATION",
+      "from": "person-001",
+      "to": "family-001",
+      "properties": {
+        "relation": "父子関係"
+      }
+    },
+    {
+      "id": "rel-005",
+      "type": "FAMILY_RELATION",
+      "from": "person-001",
+      "to": "family-002",
+      "properties": {
+        "relation": "母子関係",
+        "note": "主介護者"
+      }
+    },
+    {
+      "id": "rel-006",
+      "type": "FAMILY_RELATION",
+      "from": "person-001",
+      "to": "family-003",
+      "properties": {
+        "relation": "姉弟関係"
+      }
+    },
+    {
+      "id": "rel-007",
+      "type": "HAS_SERVICE_PLAN",
+      "from": "person-001",
+      "to": "service-plan-001",
+      "properties": {
+        "note": "本人のサービス等利用計画"
+      }
+    },
+    {
+      "id": "rel-008",
+      "type": "HAS_CONTRACT",
+      "from": "person-001",
+      "to": "service-contract-001",
+      "properties": {
+        "note": "本人のサービス利用契約"
+      }
+    },
+    {
+      "id": "rel-009",
+      "type": "RECEIVES_MEDICAL_CARE",
+      "from": "person-001",
+      "to": "medical-institution-001",
+      "properties": {
+        "note": "通院中"
+      }
+    },
+    {
+      "id": "rel-010",
+      "type": "TREATED_BY",
+      "from": "person-001",
+      "to": "doctor-001",
+      "properties": {
+        "note": "主治医"
+      }
+    },
+    {
+      "id": "rel-011",
+      "type": "CREATED_BY",
+      "from": "service-plan-001",
+      "to": "specialist-001",
+      "properties": {
+        "createdDate": "2024-04-01",
+        "note": "相談支援専門員が計画作成"
+      }
+    },
+    {
+      "id": "rel-012",
+      "type": "WORKS_FOR",
+      "from": "specialist-001",
+      "to": "consultation-support-001",
+      "properties": {
+        "note": "相談支援専門員が所属"
+      }
+    },
+    {
+      "id": "rel-013",
+      "type": "CONTRACT_WITH",
+      "from": "service-contract-001",
+      "to": "support-service-001",
+      "properties": {
+        "note": "生活介護事業所との契約"
+      }
+    },
+    {
+      "id": "rel-014",
+      "type": "MANAGED_BY",
+      "from": "service-contract-001",
+      "to": "service-manager-001",
+      "properties": {
+        "note": "サービス管理責任者が管理"
+      }
+    },
+    {
+      "id": "rel-015",
+      "type": "WORKS_FOR",
+      "from": "service-manager-001",
+      "to": "support-service-001",
+      "properties": {
+        "note": "サービス管理責任者が所属"
+      }
+    },
+    {
+      "id": "rel-016",
+      "type": "DIAGNOSED_BY",
+      "from": "diagnosis-001",
+      "to": "doctor-001",
+      "properties": {
+        "diagnosisDate": "2023-01-20",
+        "note": "診断医"
+      }
+    },
+    {
+      "id": "rel-017",
+      "type": "WORKS_FOR",
+      "from": "doctor-001",
+      "to": "medical-institution-001",
+      "properties": {
+        "note": "医師が所属"
+      }
+    }
+  ]
+}
