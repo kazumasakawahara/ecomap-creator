@@ -20,10 +20,10 @@ authors = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/ecomap-creator"
-Documentation = "https://github.com/YOUR_USERNAME/ecomap-creator/blob/main/SKILL.md"
-Repository = "https://github.com/YOUR_USERNAME/ecomap-creator"
-Issues = "https://github.com/YOUR_USERNAME/ecomap-creator/issues"
+Homepage = "https://github.com/kazumasakawahara/ecomap-creator"
+Documentation = "https://github.com/kazumasakawahara/ecomap-creator/blob/main/SKILL.md"
+Repository = "https://github.com/kazumasakawahara/ecomap-creator"
+Issues = "https://github.com/kazumasakawahara/ecomap-creator/issues"
 ```
 
 **CONTRIBUTING.md の更新**:
@@ -59,8 +59,8 @@ Issues = "https://github.com/YOUR_USERNAME/ecomap-creator/issues"
    # ブランチ名をmainに変更
    git branch -M main
 
-   # リモート追加（YOUR_USERNAMEを実際のものに変更）
-   git remote add origin https://github.com/YOUR_USERNAME/ecomap-creator.git
+   # リモート追加（kazumasakawaharaを実際のものに変更）
+   git remote add origin https://github.com/kazumasakawahara/ecomap-creator.git
 
    # プッシュ
    git push -u origin main
@@ -119,7 +119,7 @@ Improvements:
 
 #### For Developers
 ```bash
-git clone https://github.com/YOUR_USERNAME/ecomap-creator.git
+git clone https://github.com/kazumasakawahara/ecomap-creator.git
 cd ecomap-creator
 uv sync
 ```
@@ -137,18 +137,18 @@ uv run ecomap-creator samples/sample_case_01.xlsx
 ```
 
 ### 📚 Documentation
-- [SKILL.md](https://github.com/YOUR_USERNAME/ecomap-creator/blob/main/SKILL.md) - Claude Skill usage guide
-- [README.md](https://github.com/YOUR_USERNAME/ecomap-creator/blob/main/README.md) - Detailed documentation
-- [CHANGELOG.md](https://github.com/YOUR_USERNAME/ecomap-creator/blob/main/CHANGELOG.md) - Version history
+- [SKILL.md](https://github.com/kazumasakawahara/ecomap-creator/blob/main/SKILL.md) - Claude Skill usage guide
+- [README.md](https://github.com/kazumasakawahara/ecomap-creator/blob/main/README.md) - Detailed documentation
+- [CHANGELOG.md](https://github.com/kazumasakawahara/ecomap-creator/blob/main/CHANGELOG.md) - Version history
 
 ### 🐛 Known Issues
 - One test failing in date converter (invalid date handling)
 
 ### 🤝 Contributing
-See [CONTRIBUTING.md](https://github.com/YOUR_USERNAME/ecomap-creator/blob/main/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/kazumasakawahara/ecomap-creator/blob/main/CONTRIBUTING.md)
 
 ### 📄 License
-MIT License - see [LICENSE](https://github.com/YOUR_USERNAME/ecomap-creator/blob/main/LICENSE)
+MIT License - see [LICENSE](https://github.com/kazumasakawahara/ecomap-creator/blob/main/LICENSE)
 ```
 
 3. **Assets添付**

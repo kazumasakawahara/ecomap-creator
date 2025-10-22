@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
-    { name = "K. Kawahara", email = "k-kawahara@example.com" }
+    { name = "Kazumasa Kawahara", email = "12345678+kazumasakawahara@users.noreply.github.com" }
 ]
 keywords = ["ecomap", "disability-support", "social-work", "visualization", "claude-skill"]
 classifiers = [
@@ -40,10 +40,10 @@ test = [
 ecomap-creator = "ecomap_creator:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/ecomap-creator"
-Documentation = "https://github.com/yourusername/ecomap-creator/blob/main/SKILL.md"
-Repository = "https://github.com/yourusername/ecomap-creator"
-Issues = "https://github.com/yourusername/ecomap-creator/issues"
+Homepage = "https://github.com/kazumasakawahara/ecomap-creator"
+Documentation = "https://github.com/kazumasakawahara/ecomap-creator/blob/main/SKILL.md"
+Repository = "https://github.com/kazumasakawahara/ecomap-creator"
+Issues = "https://github.com/kazumasakawahara/ecomap-creator/issues"
 
 [build-system]
 requires = ["hatchling"]

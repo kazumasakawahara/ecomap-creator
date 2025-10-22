@@ -118,7 +118,7 @@ ecomap-creator/
 
 - **GitHub Discussions**: 使用方法の質問
 - **GitHub Issues**: バグ報告、機能リクエスト
-- **Email**: [your-email]（緊急時のみ）
+- **Email**: GitHub経由でご連絡ください
 
 ## 行動規範
 
